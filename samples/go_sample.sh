@@ -41,18 +41,9 @@ fi
 
 echo Compiling and running the Go sample.
 
-# Workaround for https://github.com/google/flatbuffers/issues/7780:
-# go mod replace requires a go.mod file in the target directory,
-# but there currently isn't one in the ../go directory.
-# So we copy the ../go directory to go_gen and manually create go_gen/go.mod
-mkdir -p ${sampledir}/go_gen
-cp ${sampledir}/../go/* ${sampledir}/go_gen
-( cd ${sampledir}/go_gen && go mod init github.com/google/flatbuffers/go )
-
 # Compile and execute the sample.
 go build -o go_sample sample_binary.go
 ./go_sample
 
 # Clean up the temporary files.
-rm -rf ${sampledir}/go_gen/
 rm go_sample

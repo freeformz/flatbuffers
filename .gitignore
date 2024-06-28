@@ -106,6 +106,7 @@ android/build/
 samples/android/.externalNativeBuild/
 samples/android/.gradle/
 samples/android/build/
+samples/MyGame
 js/**/*.js
 js/**/*.d.ts
 mjs/**/*.js
